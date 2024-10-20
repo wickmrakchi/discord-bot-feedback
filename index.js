@@ -128,7 +128,7 @@ client.on("interactionCreate", async (modal) => {
 
     // إضافة اسم المستخدم
 
-    ctx.fillText("بواسطة: " + modal.user.username, 407, 51);
+    ctx.fillText("بواسطة: " + modal.user.displayName, 407, 51);
 
     // تقسيم النص الطويل إلى أسطر
 
