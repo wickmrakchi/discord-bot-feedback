@@ -20,7 +20,7 @@ This is a simple Discord bot that allows users to send feedback in a specific ch
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/wickmrakchi/discord-bot-feedback.git
-   cd discord-bot-feedback```
+   cd discord-bot-feedback
 
 2. **Install the dependencies:**
 
