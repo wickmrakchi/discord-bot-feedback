@@ -43,9 +43,9 @@ client.on("messageCreate", async (message) => {
     // إعداد الرسالة الترويجية
     let embed = new Discord.EmbedBuilder()
       .setColor("#0a1a28") // يحدد لون الإطار الجانبي للرسالة
-      .setTitle("ملاحظاتك") // يضع عنوان للرسالة
-      .setDescription("أعطنا تقييمك أو رأيك حول حل **Wick Studio** لهذا الخادم.") // يضيف وصفًا تحت العنوان
-      .setImage("https://cdn.discordapp.com/attachments/1191137526384169122/1275316449476349983/BANNER.jpg?ex=66c8157f&is=66c6c3ff&hm=521bdca7edf49acd69aa95167c9915abd93507c645db001dc89f13fa0f1a2619&") // يعرض صورة كبيرة (بنر) داخل الرسالة
+      .setTitle("أكتب_عنوان") // يضع عنوان للرسالة
+      .setDescription("أكتب_وصف") // يضيف وصفًا تحت العنوان
+      .setImage("رابط_صورة") // يعرض صورة كبيرة (بنر) داخل الرسالة
       .setThumbnail(message.guild.iconURL({ dynamic: true })); // يعرض صورة مصغرة، وهي شعار الخادم (server)
     message.channel.send({ embeds: [embed], components: [row] });
   }
