@@ -25,7 +25,7 @@ This is a simple Discord bot that allows users to send feedback in a specific ch
 2. **Install the dependencies:**
 
 ```bash
-npm install```
+npm install
 
 
 3. **Configuration:**
@@ -36,7 +36,7 @@ Open the `Data.js` file and configure the bot by adding the following:
 module.exports = {
   Channel: "id_channel", // ID of the channel where feedback is sent
   Prefix: "!" // Prefix for commands, e.g., !send
-};```
+};
 
 In the `index.js` file, customize the embed message:
 
