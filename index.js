@@ -1,11 +1,15 @@
 require("dotenv").config();
 const Discord = require("discord.js");
 const { createCanvas, loadImage } = require("canvas");
-const Data = require("./Data");
+const config = require("./config.js");
 
 // إنشاء عميل Discord
 const client = new Discord.Client({
-  intents: [Discord.IntentsBitField.Flags.Guilds, Discord.IntentsBitField.Flags.GuildMessages, Discord.IntentsBitField.Flags.MessageContent],
+  intents: [
+    Discord.IntentsBitField.Flags.Guilds,
+    Discord.IntentsBitField.Flags.GuildMessages,
+    Discord.IntentsBitField.Flags.MessageContent
+  ],
 });
 
 // عندما يكون البوت جاهزًا
@@ -25,8 +29,8 @@ client.on("ready", () => {
 
 // عند تلقي رسالة
 client.on("messageCreate", async (message) => {
-  if (message.content === Data.Prefix + "send") {
-    // if (!message.member.permissions.has(Discord.PermissionsBitField.Flags.Administrator)) return;
+  if (message.content === config.Prefix + "send") {
+     if (!message.member.permissions.has(Discord.PermissionsBitField.Flags.Administrator)) return;
 
     // إعداد أزرار التقييم
     let row = new Discord.ActionRowBuilder().addComponents(
@@ -42,13 +46,13 @@ client.on("messageCreate", async (message) => {
     );
     // إعداد الرسالة الترويجية
     let embed = new Discord.EmbedBuilder()
-      .setColor("#0a1a28") // يحدد لون الإطار الجانبي للرسالة
-      .setTitle("أكتب_عنوان") // يضع عنوان للرسالة
-      .setDescription("أكتب_وصف") // يضيف وصفًا تحت العنوان
-      .setImage("رابط_صورة") // يعرض صورة كبيرة (بنر) داخل الرسالة
-      .setThumbnail(message.guild.iconURL({ dynamic: true })); // يعرض صورة مصغرة، وهي شعار الخادم (server)
-    message.channel.send({ embeds: [embed], components: [row] });
-  }
+    .setColor("#0a1a28") // يحدد لون الإطار الجانبي للرسالة
+    .setTitle("أكتب_عنوان") // يضع عنوان للرسالة
+    .setDescription("أكتب_وصف") // يضيف وصفًا تحت العنوان
+    .setImage("رابط_صورة") // يعرض صورة كبيرة (بنر) داخل الرسالة
+    .setThumbnail(message.guild.iconURL({ dynamic: true })); // يعرض صورة مصغرة، وهي شعار الخادم (server)
+  message.channel.send({ embeds: [embed], components: [row] });
+}
 });
 // عند التفاعل مع الأزرار
 
@@ -124,11 +128,11 @@ client.on("interactionCreate", async (modal) => {
 
     // إرسال المرفقات
     const attachment = new Discord.AttachmentBuilder(canvas.toBuffer(), `Star${starId}.png`);
-    let channel = client.channels.cache.get(Data.Channel);
+    let channel = client.channels.cache.get(config.Channel);
     await modal.reply({ content: "شكرًا على ملاحظاتك", ephemeral: true }).then(async () => {
       await channel.send({ files: [attachment] });
     });
   }
 });
 
-client.login("token"); // token bot
+client.login(config.Token);
