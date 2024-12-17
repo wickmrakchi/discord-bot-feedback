@@ -37,7 +37,6 @@ client.on("messageCreate", async (message) => {
       new Discord.ButtonBuilder().setCustomId("star1").setLabel("⭐").setStyle(Discord.ButtonStyle.Secondary),
       new Discord.ButtonBuilder()
         .setCustomId("star2")
-
         .setLabel("⭐⭐")
         .setStyle(Discord.ButtonStyle.Secondary),
       new Discord.ButtonBuilder().setCustomId("star3").setLabel("⭐⭐⭐").setStyle(Discord.ButtonStyle.Secondary),
